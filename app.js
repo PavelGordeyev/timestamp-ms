@@ -8,7 +8,9 @@ const port = 8080;
 
 const server = http.createServer(function(request, response){
 	// Output the timestamp
+
 	timestamp.getTimeStamp(request,response);
+	
 }).listen(port, hostname, function(){
   console.log('Server running at http://${' + hostname + '}:${' + port + '}/');
 });
