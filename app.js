@@ -1,5 +1,5 @@
-var timestamp = require('./timestamp.js');
-var renderer = require('./renderer.js');
+var timestamp = require('./scripts/timestamp.js');
+var renderer = require('./scripts/renderer.js');
 
 // Create a web server
 const http = require('http');
@@ -13,7 +13,7 @@ const server = http.createServer(function(request, response){
 	if(request.url === '/' || request.url === ''){
 		renderer.writePageMarkdown(response);
 	}else if(request.url.indexOf('.js') !== -1){
-		scripts.jsRequest(request,response);
+		renderer.jsRequest(request,response);
 	}else if(request.url.indexOf('.css') !== -1){
 		renderer.cssRequest(response);
 	}else{

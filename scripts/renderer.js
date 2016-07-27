@@ -1,17 +1,7 @@
 var fs = require('fs');
-var react = require('react');
-
-
-function getMarkdown(){
-	return fs.readFileSync('./ts_ms_markdown.txt', {encoding: 'utf8'});
-}
 
 function writePageMarkdown(response){
-	var content = fs.readFileSync('./header.html',{encoding: 'utf8'}),
-		markdown = fs.readFileSync('./ts_ms_markdown.txt', {encoding: 'utf8'});
-
-	
-	content = mergeValues(markdown,content);
+	var content = fs.readFileSync('./views/index.html',{encoding: 'utf8'});
 
 	response.write(content);
 	response.end();
@@ -31,17 +21,7 @@ function cssRequest(response){
 	response.end();	
 }
 
-function mergeValues(markdown,content){
-
-	// Replace all {{key}} with the markdown
-	content = content.replace('{{markdown}}',markdown);
-
-	// Return the merged content
-	return content;
-}
-
 module.exports.writePageMarkdown = writePageMarkdown;
-module.exports.getMarkdown = getMarkdown;
 module.exports.cssRequest = cssRequest;
 module.exports.jsRequest = jsRequest;
 
