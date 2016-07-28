@@ -16,6 +16,8 @@ const server = http.createServer(function(request, response){
 		renderer.jsRequest(request,response);
 	}else if(request.url.indexOf('.css') !== -1){
 		renderer.cssRequest(response);
+	}else if(request.url === '/favicon.ico'){
+		// Do nothing
 	}else{
 		timestamp.getTimeStamp(request,response);
 	}
