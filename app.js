@@ -4,7 +4,7 @@ var renderer = require('./scripts/renderer.js');
 // Create a web server
 const http = require('http');
 
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 //const port = 8080;
 
 const server = http.createServer(function(request, response){
