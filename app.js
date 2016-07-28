@@ -16,8 +16,8 @@ const server = http.createServer(function(request, response){
 		renderer.jsRequest(request,response);
 	}else if(request.url.indexOf('.css') !== -1){
 		renderer.cssRequest(response);
-	}else if(request.url === '/favicon.ico'){
-		// Do nothing
+	}else if(request.url === '/favicon.ico'){ // Redirect to index
+		response.writeHead(303, {'Location': '/'});
 	}else{
 		timestamp.getTimeStamp(request,response);
 	}
