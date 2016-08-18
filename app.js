@@ -4,9 +4,8 @@ var renderer = require('./scripts/renderer.js');
 // Create a web server
 const http = require('http');
 
-//const hostname = '0.0.0.0';
-const hostname = '127.0.0.1'
-const port = 8080;
+const hostname = '0.0.0.0';
+const port = process.env.PORT;
 
 const server = http.createServer(function(request, response){
 	// Output the timestamp
@@ -25,5 +24,3 @@ const server = http.createServer(function(request, response){
   console.log('Server running at http://${' + hostname + '}:${' + port + '}/');
 });
 
-
-// process.env.PORT
